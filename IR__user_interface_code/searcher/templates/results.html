@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+
+{% block title %}
+	Search Results
+{% endblock %}
+
+{% block content %}
+	<h3 class="text-center"><p>Entered String is: <i><strong> {{ inp_value }} </strong></i></p></h3>		
+		<h3 class="text-center">The Top 10 search results: </h3>
+		{% for e in xml  %}
+    			<tr class="text-center">
+			<p>
+        		<td class="col-lg-6"><a href='#' rel="{{ e.0 }}">{{ e.0 }}</a> {{ e.1  }}</td>
+			<div class="tabs" id="{{ e.0 }}"> {{ e.2 }} </div>
+			</p>    	
+			</tr>
+		{% endfor %}			
+	<script>
+	$( document ).ready(function() {
+	    $("div.tabs").hide();
+	});
+	$('a').on('click', function(){
+	var target = $(this).attr('rel');
+   	$("#"+target).show().siblings("div").hide();
+	});
+	</script>
+{% endblock %}

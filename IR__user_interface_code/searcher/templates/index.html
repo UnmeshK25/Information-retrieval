@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Text Searcher - 
+	{% block title %}{% endblock %}</title>
+	 <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"             integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"      crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <style type="text/css">
+                #singlebutton{
+                        margin-top: 20px;
+                }
+                .container {  position: relative; }
+
+                .container:before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    z-index: 1;
+                    background-image: url(https://www.clemson.edu/brand/resources/logos/paw/orange.png);
+                   opacity: 0.3;
+                }
+
+                .content {
+                    position: relative;
+                    z-index: 2;
+                }
+        </style>
+
+        <!-- Latest compiled and minified JavaScript -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="container">
+                <div class="content">
+                        <H2 class="text-center">CPSC 8470 - Introduction to Information Retrieval</H2>
+                        <h3 class="text-center">Project Demo - Building a Hadoop based Info Retrieval System</h3>
+                        <div id="form" class="form-group col-lg-4 col-lg-offset-4 text-center">
+                                <form action="/searcher/results/" method="get">
+                            <label for="results" ><h2>Enter a Query: </h2></label>
+                            <input id="results" type="text" name="results" class="form-control input-sm" placeholder="Search">
+                            <div class="col-lg-4 col-lg-offset-4" id="singlebutton">
+                                <button type="submit" value="submit" name="singlebutton" class="btn btn-primary">Search</button>
+                                </div>
+                            <!--input type="submit" value="submit" class="btn btn-primary">-->
+                                </form>
+                        </div>
+                        <div class="col-lg-6 col-lg-offset-3">
+                                {% block content %}
+                        {% endblock %}
+                        </div>
+                </div>
+        </div>
+
+</body>
+</html>
+
